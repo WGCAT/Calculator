@@ -35,9 +35,9 @@
             this.btnDivision = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCal = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelResult = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnPlus
@@ -113,15 +113,6 @@
             this.btnCal.UseVisualStyleBackColor = true;
             this.btnCal.Click += new System.EventHandler(this.button5_Click);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(29, 110);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(542, 184);
-            this.listBox1.TabIndex = 7;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -139,15 +130,25 @@
             this.labelResult.Size = new System.Drawing.Size(38, 12);
             this.labelResult.TabIndex = 9;
             this.labelResult.Text = "label3";
+            this.labelResult.Click += new System.EventHandler(this.labelResult_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(45, 113);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(525, 220);
+            this.listBox1.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 450);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnCal);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDivision);
@@ -171,9 +172,9 @@
         private System.Windows.Forms.Button btnDivision;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCal;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelResult;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
