@@ -39,7 +39,8 @@ namespace WindowsFormsApp1
         // 덧셈 버튼
         private void button1_Click(object sender, EventArgs e)
         {
-                    number = int.Parse(textBox1.Text);
+            number = int.Parse(textBox1.Text);
+
             if (sign == "+")
                 {
                 flag = true;
@@ -104,24 +105,222 @@ namespace WindowsFormsApp1
             }
 
             textBox1.Text = "";
-            listBox1.Items.Add(history);
-            labelResult.Text = numberCal.ToString();
+            lbCal.Text = history;
+
         }
         // 뺄셈 버튼
         private void button2_Click(object sender, EventArgs e)
         {
+            number = int.Parse(textBox1.Text);
 
+            if (sign == "+")
+            {
+                flag = true;
+                numberCal = numberCal + number;
+            }
+            else if (sign == "-")
+            {
+                flag = true;
+                numberCal = numberCal - number;
+            }
+            else if (sign == "*")
+            {
+                flag = true;
+                numberCal = numberCal * number;
+            }
+            else if (sign == "/")
+            {
+                flag = true;
+                numberCal = numberCal / number;
+            }
+            else if (sign == "")
+            {
+                numberCal = number;
+            }
+            sign = "-";
+            history = history + textBox1.Text + sign;
+
+
+
+            using (SqlConnection sqlCon = new SqlConnection(connection_address))
+            {
+                if (!flag)
+                {
+                    using (SqlCommand dbcmd = new SqlCommand("Insert Into Calculation Values('" + history + "', '" + numberCal + "')", sqlCon))
+                    {
+                        try
+                        {
+                            sqlCon.Open();
+                            dbcmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("덧셈db에러1" + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    using (SqlCommand dbcmd = new SqlCommand("UPDATE Calculation SET calculate = '" + history + "', result =  '" + numberCal + "' WHERE id = (SELECT MAX(id) FROM Calculation);", sqlCon))
+                    {
+                        try
+                        {
+                            sqlCon.Open();
+                            dbcmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("덧셈db에러2" + ex.Message);
+                        }
+                    }
+                }
+            }
+
+            textBox1.Text = "";
+            lbCal.Text = history;
         }
 
         // 곱셈 버튼
         private void button3_Click(object sender, EventArgs e)
         {
+            number = int.Parse(textBox1.Text);
 
+            if (sign == "+")
+            {
+                flag = true;
+                numberCal = numberCal + number;
+            }
+            else if (sign == "-")
+            {
+                flag = true;
+                numberCal = numberCal - number;
+            }
+            else if (sign == "*")
+            {
+                flag = true;
+                numberCal = numberCal * number;
+            }
+            else if (sign == "/")
+            {
+                flag = true;
+                numberCal = numberCal / number;
+            }
+            else if (sign == "")
+            {
+                numberCal = number;
+            }
+            sign = "*";
+            history = history + textBox1.Text + sign;
+
+
+
+            using (SqlConnection sqlCon = new SqlConnection(connection_address))
+            {
+                if (!flag)
+                {
+                    using (SqlCommand dbcmd = new SqlCommand("Insert Into Calculation Values('" + history + "', '" + numberCal + "')", sqlCon))
+                    {
+                        try
+                        {
+                            sqlCon.Open();
+                            dbcmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("덧셈db에러1" + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    using (SqlCommand dbcmd = new SqlCommand("UPDATE Calculation SET calculate = '" + history + "', result =  '" + numberCal + "' WHERE id = (SELECT MAX(id) FROM Calculation);", sqlCon))
+                    {
+                        try
+                        {
+                            sqlCon.Open();
+                            dbcmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("덧셈db에러2" + ex.Message);
+                        }
+                    }
+                }
+            }
+
+            textBox1.Text = "";
+            lbCal.Text = history;
         }
         // 나눗셈 버튼
         private void button4_Click(object sender, EventArgs e)
         {
+            number = int.Parse(textBox1.Text);
 
+            if (sign == "+")
+            {
+                flag = true;
+                numberCal = numberCal + number;
+            }
+            else if (sign == "-")
+            {
+                flag = true;
+                numberCal = numberCal - number;
+            }
+            else if (sign == "*")
+            {
+                flag = true;
+                numberCal = numberCal * number;
+            }
+            else if (sign == "/")
+            {
+                flag = true;
+                numberCal = numberCal / number;
+            }
+            else if (sign == "")
+            {
+                numberCal = number;
+            }
+            sign = "/";
+            history = history + textBox1.Text + sign;
+
+
+
+            using (SqlConnection sqlCon = new SqlConnection(connection_address))
+            {
+                if (!flag)
+                {
+                    using (SqlCommand dbcmd = new SqlCommand("Insert Into Calculation Values('" + history + "', '" + numberCal + "')", sqlCon))
+                    {
+                        try
+                        {
+                            sqlCon.Open();
+                            dbcmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("덧셈db에러1" + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    using (SqlCommand dbcmd = new SqlCommand("UPDATE Calculation SET calculate = '" + history + "', result =  '" + numberCal + "' WHERE id = (SELECT MAX(id) FROM Calculation);", sqlCon))
+                    {
+                        try
+                        {
+                            sqlCon.Open();
+                            dbcmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("덧셈db에러2" + ex.Message);
+                        }
+                    }
+                }
+            }
+
+            textBox1.Text = "";
+            lbCal.Text = history;
         }
 
         // 계산 버튼
@@ -190,7 +389,10 @@ namespace WindowsFormsApp1
                 }
             }
 
+            listBox1.Items.Add(history);
+            labelResult.Text = numberCal.ToString();
             textBox1.Text = "";
+            lbCal.Text = history;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +403,11 @@ namespace WindowsFormsApp1
         private void labelResult_Click(object sender, EventArgs e)
         {
             labelResult.Text = numberCal.ToString();
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
     }
 }

@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelResult = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnDel = new System.Windows.Forms.Button();
+            this.lbCal = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnPlus
@@ -136,16 +138,37 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(45, 113);
+            this.listBox1.Location = new System.Drawing.Point(45, 233);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(525, 220);
+            this.listBox1.Size = new System.Drawing.Size(525, 100);
             this.listBox1.TabIndex = 10;
+            // 
+            // btnDel
+            // 
+            this.btnDel.Location = new System.Drawing.Point(45, 340);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 23);
+            this.btnDel.TabIndex = 11;
+            this.btnDel.Text = "기록삭제";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // lbCal
+            // 
+            this.lbCal.AutoSize = true;
+            this.lbCal.Location = new System.Drawing.Point(45, 112);
+            this.lbCal.Name = "lbCal";
+            this.lbCal.Size = new System.Drawing.Size(38, 12);
+            this.lbCal.TabIndex = 12;
+            this.lbCal.Text = "label3";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 450);
+            this.Controls.Add(this.lbCal);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.label2);
@@ -175,6 +198,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Label lbCal;
     }
 }
 
